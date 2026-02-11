@@ -1,8 +1,3 @@
-using Demo.Entities;
-using MediatR;
-
 namespace Demo.Queries;
 
-public class GetListOrderQuery : IRequest<List<Order>>
-{
-}
+public record GetListOrderQuery : IRequest<List<Order>>;

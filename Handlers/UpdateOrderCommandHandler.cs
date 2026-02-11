@@ -1,22 +1,10 @@
-using Demo.Commands;
-using Demo.Entities;
-using Demo.Infrastructure;
-using MediatR;
-
 namespace Demo.Handlers;
 
-public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, Order>
+public class UpdateOrderCommandHandler(IOrderRepository _orderRepository) : IRequestHandler<UpdateOrderCommand, Order>
 {
-    private readonly IOrderRepository _orderRepository;
-
-    public UpdateOrderCommandHandler(IOrderRepository orderRepository)
+     public async Task<Order> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
     {
-        _orderRepository = orderRepository;
-    }
-
-    public async Task<Order> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
-    {
-        var order = await _orderRepository.FirstOrDefault(o => o.Id == request.OrderId);
+        var order = await _orderRepository.GetById(request.OrderId);
 
         order.CustomerName = request.CustomerName;
         order.OrderDate = request.OrderDate;
