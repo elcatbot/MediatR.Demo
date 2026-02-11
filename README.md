@@ -35,17 +35,17 @@ MediatR.Demo/
 1. **Clone the repository**
 
 ```bash
-    git clone https://github.com/elcatbot/MediatR.Demo.git
-    cd MediatR.Demo
+git clone https://github.com/elcatbot/MediatR.Demo.git
+cd MediatR.Demo
 ```
 
 2. **Restore dependencies**
 ```bash
-    dotnet restore
+dotnet restore
 ```
 2. **Restore dependencies**
 ```bash
-    dotnet run
+dotnet run
 ```
 
 ## 📡 Usage
