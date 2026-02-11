@@ -6,6 +6,11 @@ public class UpdateOrderCommandHandler(IOrderRepository _orderRepository) : IReq
     {
         var order = await _orderRepository.GetById(request.OrderId);
 
+        if(order == null)
+        {
+            return default!;
+        }
+
         order.CustomerName = request.CustomerName;
         order.OrderDate = request.OrderDate;
         
